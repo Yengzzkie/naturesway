@@ -41,9 +41,9 @@ const steps = [
   },
 ];
 
-const Page = () => {
+const ReprintLabel = () => {
   return (
-    <div className="flex flex-col justify-center items-start py-10">
+    <div className="flex flex-col text-gray-100 justify-center items-start py-10">
       <h1 className="font-bold text-2xl mb-8">
         Print / Reprint Packing Slip or Label
       </h1>
@@ -58,8 +58,8 @@ const Page = () => {
           <TimelineItem key={index}>
             <TimelineConnector />
             <TimelineHeader>
-              <TimelineIcon className="p-2">
-                <CheckIcon className="h-4 w-4" />
+              <TimelineIcon className="p-2 bg-gray-300">
+                <CheckIcon className="text-gray-900 h-4 w-4" />
               </TimelineIcon>
               <Typography variant="h5" color="orange">
                 Step {index + 1}
@@ -82,4 +82,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default ReprintLabel;

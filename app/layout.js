@@ -20,13 +20,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased grid grid-cols-[1fr_2fr]`}
-      >
-        <div className="sticky top-0 h-screen overflow-y-auto px-4">
+      <body className={`antialiased`}>
+        {/* <div className="sticky top-0 h-screen overflow-y-auto px-4">
           <Navlinks />
-        </div>
-        <main className="overflow-auto px-8">{children}</main>
+        </div> */}
+        <main className="overflow-auto">{children}</main>
       </body>
     </html>
   );

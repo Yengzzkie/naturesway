@@ -58,11 +58,11 @@ const steps = [
   },
   {
     text: "Save and post the order",
-    img: HUidentification.src,
+    img: null,
   },
   {
     text: "Use bulk burn transaction VL74, select everything and execute to print labels and packing slip.",
-    img: HUidentification.src,
+    img: null,
   },
   {
     text: (
@@ -76,7 +76,7 @@ const steps = [
     img: null,
   },
   {
-    text: "After wrapping, put invoice, and packing slip in separate envelope and put it on same skid.",
+    text: "After wrapping the pallet, put invoice, and packing slip in separate envelope and put it on the same skid.",
     img: null,
   },
   {
@@ -204,10 +204,10 @@ const steps = [
   },
 ];
 
-const Page = () => {
+const LoblawsShoppers = () => {
   return (
     <div className="flex flex-col justify-center items-start py-10">
-      <h1 className="font-bold text-2xl mb-8">
+      <h1 className="text-gray-200 font-bold text-2xl mb-8">
         Loblaw / Shopper's Drugmart 4 way skid
       </h1>
 
@@ -226,8 +226,8 @@ const Page = () => {
           <TimelineItem key={index}>
             <TimelineConnector />
             <TimelineHeader>
-              <TimelineIcon className="p-2">
-                <CheckIcon className="h-4 w-4" />
+              <TimelineIcon className="p-2 bg-gray-300">
+                <CheckIcon className="h-4 w-4 text-gray-900" />
               </TimelineIcon>
               <Typography variant="h5" color="orange">
                 Step {index + 1}
@@ -250,4 +250,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default LoblawsShoppers;
