@@ -21,7 +21,7 @@ export const BouncyCardsFeatures = ({ content }) => {
           </span>
         </div>
       </BounceCard>
-      <DragCloseDrawer open={open} content={content}>
+      <DragCloseDrawer open={open} setOpen={setOpen} content={content}>
         <div>{content.component}</div>
       </DragCloseDrawer>
     </section>

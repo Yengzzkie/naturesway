@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import {
   Timeline,
   TimelineItem,
@@ -10,6 +10,7 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import { CheckIcon } from "@heroicons/react/24/solid";
+import SpringModal from "../components/SpringModal";
 import handlingUnit from "@/public/handling-unit.png";
 import vlo2n from "@/public/vlo2n.png";
 import BOL from "@/public/BOL.png";
@@ -222,29 +223,40 @@ const LoblawsShoppers = () => {
       />
 
       <Timeline className="mt-10">
-        {steps.map((step, index) => (
-          <TimelineItem key={index}>
-            <TimelineConnector />
-            <TimelineHeader>
-              <TimelineIcon className="p-2 bg-gray-300">
-                <CheckIcon className="h-4 w-4 text-gray-900" />
-              </TimelineIcon>
-              <Typography variant="h5" color="orange">
-                Step {index + 1}
-              </Typography>
-            </TimelineHeader>
-            <TimelineBody className="pb-8">
-              <Typography color="gray" className="font-normal text-gray-400">
-                {step.text}
-              </Typography>
-              {step.img && (
-                <div className="w-[75%] mt-4">
-                  <img src={step.img} alt={`Step ${index + 1}`} />
-                </div>
-              )}
-            </TimelineBody>
-          </TimelineItem>
-        ))}
+        {steps.map((step, index) => {
+          const [isOpen, setIsOpen] = useState(false);
+          return (
+            <TimelineItem key={index}>
+              <TimelineConnector />
+              <TimelineHeader>
+                <TimelineIcon className="p-2 bg-gray-300">
+                  <CheckIcon className="text-gray-900 h-4 w-4" />
+                </TimelineIcon>
+                <Typography variant="h5" color="orange">
+                  Step {index + 1}
+                </Typography>
+              </TimelineHeader>
+              <TimelineBody className="pb-8">
+                <Typography color="gray" className="font-normal text-gray-400">
+                  {step.text}
+                </Typography>
+                {step.img && (
+                  <div
+                    className="w-[50%] mt-4 cursor-pointer"
+                    onClick={() => setIsOpen(true)}
+                  >
+                    <img src={step.img} alt={`Step ${index + 1}`} />
+                    <SpringModal
+                      stepImg={step.img}
+                      isOpen={isOpen}
+                      setIsOpen={setIsOpen}
+                    />
+                  </div>
+                )}
+              </TimelineBody>
+            </TimelineItem>
+          );
+        })}
       </Timeline>
     </div>
   );

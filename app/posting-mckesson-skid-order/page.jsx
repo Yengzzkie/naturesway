@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import {
   Timeline,
   TimelineItem,
@@ -10,6 +10,7 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import { CheckIcon } from "@heroicons/react/24/solid";
+import SpringModal from "../components/SpringModal";
 import ATSBOL from "@/public/ATS-BOL.png";
 import ATSBarcode from "@/public/ATS-barcode.png";
 import VL02N from "@/public/vlo2n.png";
@@ -25,12 +26,8 @@ import VL74 from "@/public/vl74.png";
 import BulkBarnLabel from "@/public/bulkbarn-label.png";
 import OutputHU from "@/public/Output-HU.png";
 import EmailTemplate from "@/public/email-template.png";
-import ZPSTAT from "@/public/ZPSTAT.png";
-import displayDelivery from "@/public/display-delivery-detail.png";
 import HUidentification from "@/public/HU-identification.png";
-import createShipment from "@/public/create-shipment.png";
-import matrixDc30 from "@/public/matrixdc30.png";
-import greenBackBtn from "@/public/green-back-btn.png";
+
 import NotificationAlert from "../components/NotificationAlert";
 
 const steps = [
@@ -155,30 +152,41 @@ const McKessonSkid = () => {
         text="Loblaws and Shopper's Drugmart orders is picked as CSE (Cases) not as a per unit. 200mL = 11 boxes per layer, 500mL = 14 boxes per layer."
       />
 
-      <Timeline className="mt-10">
-        {steps.map((step, index) => (
-          <TimelineItem key={index}>
-            <TimelineConnector />
-            <TimelineHeader>
-              <TimelineIcon className="p-2 bg-gray-300">
-                <CheckIcon className="h-4 w-4 text-gray-900" />
-              </TimelineIcon>
-              <Typography variant="h5" color="orange">
-                Step {index + 1}
-              </Typography>
-            </TimelineHeader>
-            <TimelineBody className="pb-8">
-              <Typography color="gray" className="font-normal text-gray-400">
-                {step.text}
-              </Typography>
-              {step.img && (
-                <div className="w-[75%] mt-4">
-                  <img src={step.img} alt={`Step ${index + 1}`} />
-                </div>
-              )}
-            </TimelineBody>
-          </TimelineItem>
-        ))}
+<Timeline className="mt-10">
+        {steps.map((step, index) => {
+          const [isOpen, setIsOpen] = useState(false);
+          return (
+            <TimelineItem key={index}>
+              <TimelineConnector />
+              <TimelineHeader>
+                <TimelineIcon className="p-2 bg-gray-300">
+                  <CheckIcon className="text-gray-900 h-4 w-4" />
+                </TimelineIcon>
+                <Typography variant="h5" color="orange">
+                  Step {index + 1}
+                </Typography>
+              </TimelineHeader>
+              <TimelineBody className="pb-8">
+                <Typography color="gray" className="font-normal text-gray-400">
+                  {step.text}
+                </Typography>
+                {step.img && (
+                  <div
+                    className="w-[50%] mt-4 cursor-pointer"
+                    onClick={() => setIsOpen(true)}
+                  >
+                    <img src={step.img} alt={`Step ${index + 1}`} />
+                    <SpringModal
+                      stepImg={step.img}
+                      isOpen={isOpen}
+                      setIsOpen={setIsOpen}
+                    />
+                  </div>
+                )}
+              </TimelineBody>
+            </TimelineItem>
+          );
+        })}
       </Timeline>
     </div>
   );

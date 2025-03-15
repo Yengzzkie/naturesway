@@ -3,6 +3,7 @@ import { BouncyCardsFeatures } from "./components/BounceCard";
 import ReprintLabel from "../app/how-to-reprint-label/page";
 import LoblawsShoppers from "../app/setting-apointment-for-loblaws-shoppers/page"
 import McKessonSkid from "./posting-mckesson-skid-order/page";
+import DayAndRoss from "./day-and-ross-sop/page";
 import { Hero } from "./components/Hero";
 
 const content = [
@@ -26,31 +27,31 @@ const content = [
   },
   {
     id: "4",
-    title: "Content 3",
+    title: "Day & Ross SOP",
     bg: "bg-gradient-to-br from-pink-400 to-red-400",
-    component: <ReprintLabel />,
+    component: <DayAndRoss />,
   },
   {
-    id: "4",
+    id: "5",
     title: "Content 4",
     bg: "bg-gradient-to-br from-pink-400 to-red-400",
     component: <ReprintLabel />,
   },
   {
-    id: "4",
+    id: "6",
     title: "Content 5",
     bg: "bg-gradient-to-br from-pink-400 to-red-400",
     component: <ReprintLabel />,
   },
   {
-    id: "4",
+    id: "7",
     title: "Content 6",
     bg: "bg-gradient-to-br from-pink-400 to-red-400",
     component: <ReprintLabel />,
   },
 ];
 
-export default function Home({ children }) {
+export default function Home() {
   return (
     <div>
       <Hero />

@@ -46,7 +46,7 @@ const DragCloseDrawer = ({ open, setOpen, children }) => {
             transition={{
               ease: "easeInOut",
             }}
-            className="absolute bottom-0 h-[85vh] w-full overflow-hidden rounded-t-3xl bg-gray-900"
+            className="absolute bottom-0 lg:h-[90vh] w-full overflow-hidden rounded-t-3xl bg-gray-900 px-8 py-6"
             style={{ y }}
             drag="y"
             dragControls={controls}
@@ -70,6 +70,7 @@ const DragCloseDrawer = ({ open, setOpen, children }) => {
                 onPointerDown={(e) => {
                   controls.start(e);
                 }}
+                onClick={() => setOpen(false)}
                 className="h-2 w-14 cursor-grab touch-none rounded-full bg-gray-700 active:cursor-grabbing"
               ></button>
             </div>
