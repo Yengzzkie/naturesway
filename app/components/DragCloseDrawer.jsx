@@ -46,7 +46,7 @@ const DragCloseDrawer = ({ open, setOpen, children }) => {
             transition={{
               ease: "easeInOut",
             }}
-            className="absolute bottom-0 lg:h-[90vh] w-full overflow-hidden rounded-t-3xl bg-gray-900 px-8 py-6"
+            className="absolute bottom-0 h-[90vh] w-full overflow-hidden rounded-t-3xl bg-gray-900 px-8 py-6"
             style={{ y }}
             drag="y"
             dragControls={controls}
